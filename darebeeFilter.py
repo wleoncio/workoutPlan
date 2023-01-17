@@ -1,5 +1,11 @@
 url = "https://www.darebee.com/filter#sort=position&sortdir=desc&page=1"
 
+print("# Filtering\n")
+# Processing name
+name = input("Exercise name: ")
+if name != "":
+  url+= "&name=" + name
+
 # Processing focus
 focus_num = input("Choose focus ([u]pper, [a]bs, [l]ower, [f]ull): ")
 focus_dic = {"f": "full-body", "u": "upper-body", "l": "lower-body", "a": "abs"}
@@ -28,10 +34,13 @@ if equipment_num != "":
   url += equipment_url
 
 # Output
-print("Suggested exercises:\n")
-print("Focus:      " + focus_dic[focus_num])
+print("\n# Suggesting exercises\n")
+print("Focus:      " + (focus_dic[focus_num] if focus_num != "" else "all"))
 print("Type:       strength")
-print("Difficulty: " + difficulty_dic[difficulty_num])
-print("Equipment:  " + equipment_dic[equipment_num])
+print("Difficulty: " + (difficulty_dic[difficulty_num] if difficulty_num != "" else "all"))
+print("Equipment:  " + (equipment_dic[equipment_num] if equipment_num != "" else "all"))
 print()
 print(url)
+
+import os
+os.system("firefox \"" + url + "\" &")
