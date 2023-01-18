@@ -1,13 +1,15 @@
 #!/usr/bin/python
+from os.path import exists
 
 class Exercise:
   def __init__(self, url, folder="log"):
-    base_url = "https://darebee.com/workouts/"
+    base_url = "https://www.darebee.com/workouts/"
     suffix = "-workout.html"
     self.__file_html_name = url.replace(base_url, "")
     self.exercise_name = self.__file_html_name.replace(suffix, "")
     self.file_name = folder + "/" + self.exercise_name + ".csv"
-    self.read()
+    if exists(self.file_name):
+      self.read()
     to_save = input("Save new workout [y/N]?: ")
     if to_save == "y":
       self.save()
@@ -36,3 +38,7 @@ class Exercise:
       line_string = '\t'.join(line_split).replace("\n","")
       print(line_string)
     stream.close()
+
+# Executing
+this_url = input("Enter exercise URL: ")
+Exercise(this_url)
