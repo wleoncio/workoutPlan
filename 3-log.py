@@ -1,5 +1,6 @@
 #!/usr/bin/python
 from os.path import exists
+import datetime
 
 class Exercise:
   def __init__(self, url, folder="log"):
@@ -18,8 +19,11 @@ class Exercise:
     print(self.exercise_name)
 
   def save(self):
+    today = datetime.datetime.now().strftime("%Y-%m-%d")
     # Gathering data
-    self.date = input("Enter date: ")
+    self.date = input("Enter date (if different from " + today +"): ")
+    if self.date == "":
+        self.date = today
     self.level = input("Enter level: ")
     self.pause = input("Enter pause: ")
     self.weight = input("Enter weight: ")
