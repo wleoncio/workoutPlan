@@ -2,13 +2,13 @@
 
 def setWorkoutParms(superset = False):
   try:
-    n_sets = int(input("Number of sets [5]: "))
+    n_sets = int(input("Number of sets [4]: "))
   except ValueError:
-    n_sets = 5
+    n_sets = 4
   try:
-    rest_between_sets = int(input("Rest between sets [30]: "))
+    rest_between_sets = int(input("Rest between sets [60]: "))
   except ValueError:
-    rest_between_sets = 30
+    rest_between_sets = 60
   if superset:
     return([n_sets, rest_between_sets])
   else:
@@ -69,7 +69,7 @@ def runRegularTimer(parms):
 # Execution
 def main():
   try:
-    is_superset = bool(input("Is this workout a superset [y/N]? ") == "y")
+    is_superset = bool(input("Is this workout a superset [Y/n]? ") == "n")
     parms = setWorkoutParms(is_superset)
     if is_superset:
       runSupersetTimer(parms)
