@@ -36,6 +36,3 @@ class Exercise:
       line_string = '\t'.join(line_split).replace("\n","")
       print(line_string)
     stream.close()
-
-# Test
-x = Exercise("https://darebee.com/workouts/gravity-workout.html")
