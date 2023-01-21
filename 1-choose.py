@@ -42,7 +42,5 @@ else:
   print("Equipment:  " + (equipment_dic[equipment_num] if equipment_num != "" else "all"))
   print()
 
-print(url)
-
 import os
-os.system("firefox \"" + url + "\" &")
+os.system("firefox \"" + url + "\" &\n")
