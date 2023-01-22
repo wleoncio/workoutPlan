@@ -69,7 +69,7 @@ def runRegularTimer(parms):
 # Execution
 def main():
   try:
-    is_superset = bool(input("Is this workout a superset [Y/n]? ") == "n")
+    is_superset = bool(input("Is this workout a superset [Y/n]? ") != "n")
     parms = setWorkoutParms(is_superset)
     if is_superset:
       runSupersetTimer(parms)
