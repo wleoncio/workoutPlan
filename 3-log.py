@@ -39,7 +39,7 @@ class Exercise:
 
   def read(self):
     stream = open(self.file_name, "rt")
-    print("Date\t\tLevel\tPause\tWeights")
+    print("Date\t\tLevel\tPause\tWeights\tPerformance")
     for line in stream:
       line_split = line.split(",")
       line_string = '\t'.join(line_split).replace("\n","")
