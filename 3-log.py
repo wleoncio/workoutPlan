@@ -27,9 +27,11 @@ class Exercise:
     self.level = input("Enter level: ")
     self.pause = input("Enter pause: ")
     self.weight = input("Enter weight: ")
-    self.difficulty = int(input("Enter difficulty (1 too easy, 2 ok, 3 too hard): "))
-    difficulty_dic = {1 : "Too easy", 2 : "OK", 3 : "Too hard"}
-    self.difficulty = difficulty_dic[self.difficulty]
+    self.difficulty = input("Enter comment (shortcuts: 1 too easy, 2 ok, 3 too hard): ")
+    if self.difficulty in ["1", "2", "3"]:
+      difficulty_dic = {1 : "Too easy", 2 : "OK", 3 : "Too hard"}
+      self.difficulty = difficulty_dic[int(self.difficulty)]
+
 
     # Saving data
     stream = open(self.file_name, "at")
