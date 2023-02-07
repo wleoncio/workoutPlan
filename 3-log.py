@@ -14,6 +14,8 @@ class Exercise:
     to_save = input("Save new workout [y/N]?: ")
     if to_save == "y":
       self.save()
+      print("\nUpdated log")
+      self.read()
 
   def __str__(self):
     print(self.exercise_name)
