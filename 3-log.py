@@ -4,9 +4,9 @@ import datetime
 
 class Exercise:
   def __init__(self, url, folder="log"):
-    base_url = "https://www.darebee.com/workouts/"
+    base_urls = ["https://www.darebee.com/workouts/", "https://darebee.com/workouts/"]
     suffix = "-workout.html"
-    self.__file_html_name = url.replace(base_url, "")
+    self.__file_html_name = url.replace(base_urls[0], "").replace(base_urls[1], "")
     self.exercise_name = self.__file_html_name.replace(suffix, "")
     self.file_name = folder + "/" + self.exercise_name + ".csv"
     if exists(self.file_name):
@@ -30,10 +30,10 @@ class Exercise:
     self.difficulty = int(input("Enter difficulty (1 too easy, 2 ok, 3 too hard): "))
     difficulty_dic = {1 : "Too easy", 2 : "OK", 3 : "Too hard"}
     self.difficulty = difficulty_dic[self.difficulty]
-    
+
     # Saving data
     stream = open(self.file_name, "at")
-    line = self.date + "," + self.level + "," + self.pause + "," + self.weight + "," + self.difficulty + "\n" 
+    line = self.date + "," + self.level + "," + self.pause + "," + self.weight + "," + self.difficulty + "\n"
     stream.write(line)
     stream.close()
 
