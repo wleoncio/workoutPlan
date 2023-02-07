@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 url = "https://www.darebee.com/filter#sort=position&sortdir=desc&page=1"
 
 print("# Filtering\n")
