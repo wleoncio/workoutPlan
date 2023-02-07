@@ -1,6 +1,7 @@
 #!/usr/bin/python
 from os.path import exists
 import datetime
+import termcolor
 
 path="log/"
 file="day.csv"
@@ -23,6 +24,14 @@ for line in stream: # TODO: DRY (same code in Exercise class)
     streak_abs.append(line_split[2] == 'True')
     streak_lower.append(line_split[3] == 'True')
     streak_cardio.append(line_split[4] == 'True\n')
+
+    # Runtime coloring of True and False
+    for l in range(len(line_split)):
+        if line_split[l] in ["True", "True\n"]:
+            line_split[l] = termcolor.colored("True", "green")
+        elif line_split[l] in ["False", "False\n"]:
+            line_split[l] = termcolor.colored("False", "red")
+
     line_string = '\t'.join(line_split).replace("\n","")
     print(line_string)
 stream.close()
