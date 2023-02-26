@@ -51,5 +51,7 @@ class Exercise:
     stream.close()
 
 # Executing
-this_url = input("Enter exercise URL: ")
+this_url = input("Enter exercise URL/CSV name: ")
+if this_url[0:4] != "http":
+    this_url = "https://darebee.com/workouts/" + this_url + "-workout.html"
 Exercise(this_url)
