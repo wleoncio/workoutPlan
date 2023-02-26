@@ -1,12 +1,6 @@
 #!/usr/bin/bash
 # Creates sym links for easier manipulation of files
 
-dest="$HOME/.local/bin"
-
-touch "$dest" 1-choose.py
-
-ln -s 1-choose.py "$dest"
-
 PS3="Select step: "
 select step in Choose Time Log History Finish
 do
