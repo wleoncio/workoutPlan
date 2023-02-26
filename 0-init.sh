@@ -8,7 +8,7 @@ touch "$dest" 1-choose.py
 ln -s 1-choose.py "$dest"
 
 PS3="Select step: "
-select step in Choose Time Log Finish
+select step in Choose Time Log History Finish
 do
 	case $step in
 		Choose)
@@ -19,6 +19,9 @@ do
 			;;
 		Log)
 			python 3-log.py
+			;;
+		History)
+			bash history.sh
 			;;
 		Finish)
 			python 4-finish.py
