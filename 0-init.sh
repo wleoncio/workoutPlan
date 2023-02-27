@@ -6,19 +6,19 @@ select step in Choose Time Log History Finish
 do
 	case $step in
 		Choose)
-			python 1-choose.py
+			python3 1-choose.py
 			;;
 		Time)
-			python 2-time.py
+			python3 2-time.py
 			;;
 		Log)
-			python 3-log.py
+			python3 3-log.py
 			;;
 		History)
 			bash history.sh
 			;;
 		Finish)
-			python 4-finish.py
+			python3 4-finish.py
 			break
 			;;
 		*)
