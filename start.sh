@@ -1,24 +1,33 @@
 #!/usr/bin/bash
 # Creates sym links for easier manipulation of files
 
+# Loading path form config
+configPath=$HOME/.config/workoutPlan.conf
+if [ -f $configPath ]
+then
+	source $configPath
+else
+	echo "No config file found to determine LOGPATH"
+fi
+
 PS3="Select step: "
 select step in Choose Time Log History Catalog Quit
 do
 	case $step in
 		Choose)
-			python3 1-choose.py
+			python3 $LOGPATH/1-choose.py
 			;;
 		Time)
-			python3 2-time.py
+			python3 $LOGPATH/2-time.py
 			;;
 		Log)
-			python3 3-log.py
+			python3 $LOGPATH/3-log.py
 			;;
 		History)
-			bash history.sh
+			bash $LOGPATH/history.sh
 			;;
 		Catalog)
-			bash history.sh abc
+			bash $LOGPATH/history.sh abc
 			;;
 		Quit)
 			break

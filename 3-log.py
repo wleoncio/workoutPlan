@@ -71,14 +71,17 @@ this_url = input("Enter exercise URL/CSV name: ")
 
 # Checking for location of log folder in config file
 home_folder = expanduser("~")
-config_location = home_folder + ".config/workoutPlan.conf"
+config_location = home_folder + "/.config/workoutPlan.conf"
 if exists(config_location):
     stream = open(config_location)
-    log_path = readlines(stream).split("PATH=")
-    print(log_path)
+    log_path = home_folder + stream.readline().strip("LOGPATH=~")
+    stream.close()
+    log_path = log_path.strip("\n")
+    this_subfolder = log_path + "/log/" + this_subfolder
+    print(this_subfolder)
 
 # Parsing non-URLs
 if this_url[0:4] != "http":
     this_url = addURL(this_url)
 
-Exercise(this_url, "log/" + this_subfolder)
+Exercise(this_url, this_subfolder)
