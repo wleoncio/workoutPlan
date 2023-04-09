@@ -10,6 +10,7 @@ else
 	echo "No config file found to determine LOGPATH"
 fi
 
+# Selection menu
 PS3="Select step: "
 select step in Choose Time Log History Catalog Quit
 do
