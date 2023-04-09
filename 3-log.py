@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from os.path import exists
+from os.path import exists, expanduser
 import datetime
 
 class Exercise:
@@ -69,7 +69,15 @@ def expandFolder(letter):
 this_subfolder = expandFolder(input("Enter focus [f/u/a/l]: "))
 this_url = input("Enter exercise URL/CSV name: ")
 
-## Parsing non-URLs
+# Checking for location of log folder in config file
+home_folder = expanduser("~")
+config_location = home_folder + ".config/workoutPlan.conf"
+if exists(config_location):
+    stream = open(config_location)
+    log_path = readlines(stream).split("PATH=")
+    print(log_path)
+
+# Parsing non-URLs
 if this_url[0:4] != "http":
     this_url = addURL(this_url)
 
