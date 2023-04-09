@@ -4,10 +4,8 @@
 if [[ $1 = "abc" ]]
 then
 	echo "Sorting alfabetically"
-	t=""
+	tree log -i --dirsfirst
 else
 	echo "Sorting by time"
-	t="t"
+	tree log/ -t --timefmt %m-%d --noreport
 fi
-
-ls -ogl$t --time-style=long-iso log --hide="day.csv"
