@@ -7,5 +7,5 @@ then
 	tree log -i --dirsfirst
 else
 	echo "Sorting by time"
-	tree log/ -t --timefmt %m-%d --noreport
+	tree log/ -t --timefmt "%a %d-%b" --noreport
 fi
