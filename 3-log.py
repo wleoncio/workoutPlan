@@ -50,8 +50,27 @@ class Exercise:
       print(line_string)
     stream.close()
 
-# Executing
+def addURL(name):
+    return("https://darebee.com/workouts/" + name + "-workout.html")
+
+def expandFolder(letter):
+    match letter:
+        case "u":
+            return "upper"
+        case "l":
+            return "lower"
+        case "a":
+            return "abs"
+        case "f":
+            return "full"
+
+# Parsing exercise name and location
+
+this_subfolder = expandFolder(input("Enter focus [f/u/a/l]: "))
 this_url = input("Enter exercise URL/CSV name: ")
+
+## Parsing non-URLs
 if this_url[0:4] != "http":
-    this_url = "https://darebee.com/workouts/" + this_url + "-workout.html"
-Exercise(this_url)
+    this_url = addURL(this_url)
+
+Exercise(this_url, "log/" + this_subfolder)
