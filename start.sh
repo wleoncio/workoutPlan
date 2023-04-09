@@ -2,7 +2,7 @@
 # Creates sym links for easier manipulation of files
 
 PS3="Select step: "
-select step in Choose Time Log History Finish
+select step in Choose Time Log History Catalog Quit
 do
 	case $step in
 		Choose)
@@ -17,8 +17,10 @@ do
 		History)
 			bash history.sh
 			;;
-		Finish)
-			python3 4-finish.py
+		Catalog)
+			bash history.sh abc
+			;;
+		Quit)
 			break
 			;;
 		*)
