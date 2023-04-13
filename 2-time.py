@@ -29,6 +29,8 @@ def takeBreak(t):
     print(t)
     t -= 1
     time.sleep(1)
+    if t == 10:
+      beepy.beep(sound="ping")
   print(t)
   beepy.beep(sound="ping")
 
