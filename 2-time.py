@@ -28,9 +28,10 @@ def takeBreak(t):
   while t > 0:
     print(t)
     t -= 1
-    time.sleep(1)
     if t == 10:
       beepy.beep(sound="ping")
+    else:
+      time.sleep(1)
   print(t)
   beepy.beep(sound="ping")
 
