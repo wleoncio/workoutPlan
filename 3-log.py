@@ -78,7 +78,6 @@ if exists(config_location):
     stream.close()
     log_path = log_path.strip("\n")
     this_subfolder = log_path + "/log/" + this_subfolder
-    print(this_subfolder)
 
 # Parsing non-URLs
 if this_url[0:4] != "http":
