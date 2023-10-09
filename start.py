@@ -17,7 +17,7 @@ def get_log_path ():
 
 
 def select_option ():
- option=str(input("1.Choose\n2.Time\n3.Log\n4.History\n5.Catalog\nSelect step:"))
+ option=str(input("1.Choose\n2.Time\n3.Log\n4.History\n5.Catalog\nSelect step: "))
  log_path=(get_log_path())
  script_dict={"1":"1-choose.py","2":"2-time.py","3":"3-log.py","4":"history.py","5":"history.py abc"}
  cnt=0
