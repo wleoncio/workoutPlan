@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import os
 from os.path import exists, expanduser
 import sys
