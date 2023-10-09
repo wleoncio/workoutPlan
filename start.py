@@ -3,7 +3,7 @@ import os
 from os.path import exists, expanduser
 import sys
 
-def get_log_path ():
+def get_log_path():
   try:
     home_folder = expanduser("~")
     config_location = home_folder + "/.config/workoutPlan.conf"
@@ -16,7 +16,7 @@ def get_log_path ():
     sys.exit("No config file found to determine LOGPATH")
 
 
-def select_option ():
+def select_option():
   prompt = "1.Choose\n2.Time\n3.Log\n4.History\n5.Catalog\n6.Quit\nSelect step: "
   option = str(input(prompt))
   log_path = (get_log_path())
