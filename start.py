@@ -17,24 +17,22 @@ def get_log_path ():
 
 
 def select_option ():
- option = str(input("1.Choose\n2.Time\n3.Log\n4.History\n5.Catalog\nSelect step: "))
- log_path = (get_log_path())
- script_dict = {"1":"1-choose.py","2":"2-time.py","3":"3-log.py","4":"history.py","5":"history.py abc"}
- cnt = 0
- for key in script_dict: 
-  cnt += 1  
-  if key == option: 
-   invoke_script = (log_path + "/" + script_dict[key]) 
-   os.system('python3 ' + invoke_script)
-   cnt = 0
+  prompt = "1.Choose\n2.Time\n3.Log\n4.History\n5.Catalog\n6.Quit\nSelect step: "
+  option = str(input(prompt))
+  log_path = (get_log_path())
+  script_dict = {"1":"1-choose.py","2":"2-time.py","3":"3-log.py","4":"history.py","5":"history.py abc"}
+  if option in script_dict:
+    invoke_script = (log_path + "/" + script_dict[option])
+    os.system('python3 ' + invoke_script)
+    return "Y"
+  elif option == "6":
+    return "N"
+  else:
+    print("Invalid Option\n")
+    return "Y"
 
- if cnt == len(script_dict):
-  print("Invalid Option")
-  return "Y"
- else:
-  return "N"
- 
- 
+
+
 
 #Invoke function
 ask_again = (select_option())
@@ -42,5 +40,3 @@ ask_again = (select_option())
 #Ask user to provide input again,  if input is not proper
 while ask_again != "N":
  ask_again = (select_option())
-
-
