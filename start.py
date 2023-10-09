@@ -4,16 +4,16 @@ from os.path import exists, expanduser
 import sys
 
 def get_log_path ():
- try:
-  home_folder = expanduser("~")
-  config_location = home_folder + "/.config/workoutPlan.conf"
-  stream = open(config_location, "r")
-  if exists(config_location):
-   log_path = home_folder +"/"+ stream.readline().strip("LOGPATH=~")
-   log_path = log_path.strip()
-   return log_path
- except FileNotFoundError as e:
-   sys.exit("No config file found to determine LOGPATH")
+  try:
+    home_folder = expanduser("~")
+    config_location = home_folder + "/.config/workoutPlan.conf"
+    stream = open(config_location, "r")
+    if exists(config_location):
+      log_path = home_folder +"/"+ stream.readline().strip("LOGPATH=~")
+      log_path = log_path.strip()
+      return log_path
+  except FileNotFoundError as e:
+    sys.exit("No config file found to determine LOGPATH")
 
 
 def select_option ():
@@ -39,4 +39,4 @@ ask_again = (select_option())
 
 #Ask user to provide input again,  if input is not proper
 while ask_again != "N":
- ask_again = (select_option())
+  ask_again = (select_option())
