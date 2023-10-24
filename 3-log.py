@@ -77,7 +77,7 @@ if exists(config_location):
     log_path = home_folder + stream.readline().strip("LOGPATH=~")
     stream.close()
     log_path = log_path.strip("\n")
-    this_subfolder = log_path + "/log/" + this_subfolder
+    this_subfolder = log_path + this_subfolder
 
 # Parsing non-URLs
 if this_url[0:4] != "http":
