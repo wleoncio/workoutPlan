@@ -14,12 +14,14 @@ def get_log_path():
   except FileNotFoundError as e:
     sys.exit("No config file found to determine LOGPATH")
 
-
 def select_option():
-  prompt = "1.Choose\n2.Time\n3.Log\n4.History\n5.Catalog\n6.Quit\nSelect step: "
+  prompt = "1. Choose\n2. Time\n3. Log\n4. History\n5. Catalog\n6. Quit\nSelect step: "
   option = str(input(prompt))
-  script_dict = {"1":"1-choose.py","2":"2-time.py","3":"3-log.py","4":"history.py","5":"history.py abc"}
   script_path = get_log_path().replace("log/", "").strip("\n")
+  script_dict = {
+    "1":"1-choose.py", "2":"2-time.py", "3":"3-log.py", "4":"history.py",
+    "5":"history.py abc"
+  }
   if option in script_dict:
     invoke_script = script_path + script_dict[option]
     os.system('python3 ' + invoke_script)
@@ -29,9 +31,6 @@ def select_option():
   else:
     print("Invalid Option\n")
     return "Y"
-
-
-
 
 #Invoke function
 ask_again = (select_option())
