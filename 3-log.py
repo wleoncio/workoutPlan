@@ -75,8 +75,10 @@ config_location = home_folder + "/.config/workoutPlan.conf"
 if exists(config_location):
     stream = open(config_location)
     log_path = home_folder + stream.readline().strip("LOGPATH=~")
-    stream.close()
     log_path = log_path.strip("\n")
+    if (log_path[-1] != "/"):
+      log_path += "/"
+    stream.close()
     this_subfolder = log_path + this_subfolder
 
 # Parsing non-URLs
