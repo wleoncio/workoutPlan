@@ -20,11 +20,11 @@ def  display_files(arg1):
   log_path = get_log_path()
   if arg1 == "abc":
     print("Sorting alfabetically")
-    command = ["tree", log_path, "-i", "--dirsfirst"]
+    command = ["-i", "--dirsfirst", "-C"]
   else:
     print("Sorting by time")
-    command = ["tree", log_path, "-t", "--timefmt", "%a %d-%b", "--noreport"]
-  subprocess.run(command)
+    command = ["-t", "--timefmt", "%a %d-%b", "--noreport", "-C"]
+  subprocess.run(["tree", log_path] + command)
 
 if len(sys.argv) == 2:
   display_files(sys.argv[1])
