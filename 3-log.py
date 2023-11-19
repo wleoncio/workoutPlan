@@ -5,9 +5,9 @@ import datetime
 class Exercise:
   def __init__(self, url, folder="log"):
     base_urls = ["https://www.darebee.com/workouts/", "https://darebee.com/workouts/"]
-    suffixes = ["-workout.html", "#timer", "#sets"]
+    suffixes = ["-workout.html", "#timer", "#sets", ".csv"]
     self.__file_html_name = url.replace(base_urls[0], "").replace(base_urls[1], "")
-    self.exercise_name = self.__file_html_name.replace(suffixes[0], "").replace(suffixes[1], "").replace(suffixes[2], "")
+    self.exercise_name = self.__file_html_name.replace(suffixes[0], "").replace(suffixes[1], "").replace(suffixes[2], "").replace(suffixes[3], "")
     self.file_name = folder + "/" + self.exercise_name + ".csv"
     if exists(self.file_name):
       self.read()
