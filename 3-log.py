@@ -79,10 +79,17 @@ if exists(config_location):
     if (log_path[-1] != "/"):
       log_path += "/"
     stream.close()
-    this_subfolder = log_path + this_subfolder
+    if this_subfolder is None:
+        for folder in ["upper", "lower", "abs", "full"]:
+            try:
+                print("Looking in " + folder)
+                Exercise(this_url, log_path + folder)
+            finally:
+                pass
+    else:
+        this_subfolder = log_path + this_subfolder
+        # Parsing non-URLs
+        if this_url[0:4] != "http":
+            this_url = addURL(this_url)
 
-# Parsing non-URLs
-if this_url[0:4] != "http":
-    this_url = addURL(this_url)
-
-Exercise(this_url, this_subfolder)
+        Exercise(this_url, this_subfolder)
